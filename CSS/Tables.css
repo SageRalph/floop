@@ -1,0 +1,60 @@
+
+.Watched td{
+	background-color:#B2D1B2;
+}
+
+.RatingField{
+	font-size:1em;
+	height:1.5em;
+	width:2em;
+	margin:0;
+	text-align:center;
+}
+
+.TrailerCell{
+	overflow:hidden;
+	width:10em;
+}
+
+.InvisibleCell{
+	background-color:transparent !important;
+	border:none;
+}
+
+.ModifiedCell{
+	background-color:#FFF5CC !important;
+}
+
+table input[type=submit]{
+	font-size:0.8em;
+	padding:1em;
+	width:100%;
+}
+
+table {
+    font-family:Verdana,"Sans-serif";
+    margin: 2%;
+    border-width: 1px;
+    border-collapse: collapse;
+}
+th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    background-color: #dedede; /* Light grey */
+}
+td {
+	text-align: center;
+    border-width: 1px;
+    padding: 0.5em;
+    border-style: solid;
+	background-color:white;
+}
+
+.Striped tr:nth-child(odd) {
+    background: #F0F0F0;
+}
+
+.ToDo{
+    background-color: #FAF882; /* Light orange */
+}
