@@ -53,7 +53,7 @@
                 <td>/films/{title}</td>
                 <td></td> 
                 <td></td>
-                <td></td>
+                <td class="ToDo">Edit details of film with {title}</td>
                 <td>Removes all rating for and deletes film of {title}</td>
             </tr>
 

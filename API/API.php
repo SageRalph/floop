@@ -54,6 +54,8 @@ if ($uri[0] === "accounts") {
     elseif (count($uri) === 2) {
         if ($method === "DELETE") {
             $response = deleteFilm($uri[1]);
+        } elseif ($method === "PUT") {
+            $response = editFilm($requestBody);
         }
     } elseif (count($uri) === 3) {
 
