@@ -27,7 +27,7 @@ function getFilms() {
 function getFilmDetails($filmIDs) {
     $films = [];
 
-    $query = "SELECT title, trailer, watched FROM Film WHERE filmID = ?";
+    $query = "SELECT filmID, title, trailer, watched FROM Film WHERE filmID = ?";
 
     $query2 = "SELECT Rating.username, rating FROM Rating "
             . "INNER JOIN Account ON Rating.username = Account.username "
@@ -77,24 +77,37 @@ function addFilm($title) {
         http_response_code(500); // Internal Server Error
         return "Film already exists";
     } else {
-        http_response_code(200); // OK
+        http_response_code(204); // No Content
     }
 
     $query = "INSERT INTO Film (title) VALUES (?)";
     $result = $GLOBALS['db']->run($query, array($title));
+    return reportStatus($result);
 }
 
 /**
- * Removes all rating for and deletes film of $title.
+ * Updates a property of film with $filmID
+ * Input should be an array of 2 elements, the property to modify and the value.
  * 
- * @param {String} $title
+ * @param {String} $filmID
+ * @param {array} $input
  */
-function deleteFilm($title) {
-    $filmID = getFilmID($title);
+function editFilm($filmID, $input) {
 
-    if (!is_numeric($filmID)) {
-        return $filmID;
-    }
+    $property = $input[0];
+    $value = $input[1];
+
+    $query = "UPDATE Film SET $property = ? WHERE filmID = ?";
+    $result = $GLOBALS['db']->run($query, array($value, $filmID));
+    return reportStatus($result);
+}
+
+/**
+ * Removes all rating for and deletes film of $filmID.
+ * 
+ * @param {String} $filmID
+ */
+function deleteFilm($filmID) {
 
     $query = "
         DELETE FROM Rating
@@ -110,14 +123,14 @@ function deleteFilm($title) {
 }
 
 /**
- * Sets the watched status of film with $title to $value. 
+ * Sets the watched status of film with $filmID to $value. 
  * 
- * @param {String} $title
+ * @param {String} $filmID
  * @param {boolean} $value
  */
-function markWatched($title, $value) {
-    $query = "UPDATE Film SET watched = ? WHERE title = ?";
-    $result = $GLOBALS['db']->run($query, array($value, $title));
+function markWatched($filmID, $value) {
+    $query = "UPDATE Film SET watched = ? WHERE filmID = ?";
+    $result = $GLOBALS['db']->run($query, array($value, $filmID));
     return reportStatus($result);
 }
 
@@ -174,21 +187,14 @@ function hasRated($filmID, $user) {
 }
 
 /**
- * Creates or updates the rating of film with $title 
+ * Creates or updates the rating of film with $filmID 
  * by user with $username to $value.
  * 
- * @param {String} $title
+ * @param {String} $filmID
  * @param {String} $username
  * @param {integer} $value
  */
-function rateFilm($title, $username, $value) {
-
-    $filmID = getFilmID($title);
-
-    if (!filmExists($title)) {
-        http_response_code(404); // Not found
-        return "Film not found";
-    }
+function rateFilm($filmID, $username, $value) {
 
     if (!hasRated($filmID, $username)) {
         $result = createFilmRating($filmID, $username, $value);
@@ -225,17 +231,13 @@ function modifyFilmRating($filmID, $username, $value) {
 }
 
 /**
- * Deletes rating of film with $title by user with $username.
+ * Deletes rating of film with $filmID by user with $username.
  * 
- * @param {String} $title
+ * @param {String} $filmID
  * @param {String} $username
  */
-function deleteFilmRating($title, $username) {
-
-    $filmID = getFilmID($title);
-
+function deleteFilmRating($filmID, $username) {
     $query = "DELETE FROM Rating WHERE filmID = ? AND username = ?";
     $result = $GLOBALS['db']->run($query, array($filmID, $username));
-
     return reportStatus($result);
 }

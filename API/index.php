@@ -50,19 +50,19 @@
             </tr>
 
             <tr>
-                <td>/films/{title}</td>
+                <td>/films/{filmID}</td>
                 <td></td> 
                 <td></td>
-                <td class="ToDo">Edit details of film with {title}</td>
-                <td>Removes all rating for and deletes film of {title}</td>
+                <td>Edit details of film with {filmID}</td>
+                <td>Removes all rating for and deletes film of {filmID}</td>
             </tr>
 
             <tr>
-                <td>/films/{title}/{viewer}</td>
+                <td>/films/{filmID}/{viewer}</td>
                 <td></td> 
                 <td></td>
-                <td>Modifies the rating given for film {title} by {viewer}</td>
-                <td>Deletes the rating given for film {title} by {viewer}</td>
+                <td>Modifies the rating given for film {filmID} by {viewer}</td>
+                <td>Deletes the rating given for film {filmID} by {viewer}</td>
             </tr>
 
             <tr>

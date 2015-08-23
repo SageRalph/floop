@@ -50,21 +50,21 @@ if ($uri[0] === "accounts") {
         }
     }
 
-    //URI format /films/$title
+    //URI format /films/$filmID
     elseif (count($uri) === 2) {
         if ($method === "DELETE") {
             $response = deleteFilm($uri[1]);
         } elseif ($method === "PUT") {
-            $response = editFilm($requestBody);
+            $response = editFilm($uri[1], $requestBody);
         }
     } elseif (count($uri) === 3) {
 
-        //URI format /films/$title/watched
+        //URI format /films/$filmID/watched
         if ($uri[2] === "watched" && $method === "PUT") {
             $response = markWatched($uri[1], $requestBody);
         }
 
-        //URI format /films/$title/$viewer
+        //URI format /films/$filmID/$viewer
         elseif ($method === "PUT") {
             $response = rateFilm($uri[1], $uri[2], $requestBody);
         } elseif ($method === "DELETE") {
