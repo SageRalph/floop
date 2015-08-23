@@ -3,7 +3,7 @@
 class DBConnection {
 
     // Settings
-    const DBName = "fawcett";
+    const DBName = "floop";
     const DBServername = "127.0.0.1";
     const DBUsername = "root";
     const DBPassword = "";

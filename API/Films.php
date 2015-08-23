@@ -97,6 +97,16 @@ function editFilm($filmID, $input) {
     $property = $input[0];
     $value = $input[1];
 
+    // Convert trailers to embeddable URLs
+    if ($property === "trailer") {
+        $value = embedableURL($value);
+    } // Check if duplicate title
+    elseif ($property === "title") {
+        if (filmExists($value)) {
+            http_response_code(500); // Internal Server Error
+            return "Film already exists";
+        }
+    }
     $query = "UPDATE Film SET $property = ? WHERE filmID = ?";
     $result = $GLOBALS['db']->run($query, array($value, $filmID));
     return reportStatus($result);
