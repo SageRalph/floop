@@ -72,5 +72,10 @@ ul{
 }
 
 input[type=submit].TwoButton{
-	font-size: 1em;
+    font-size: 1em;
+}
+
+input[type=submit].Mini{
+    height:1em;
+    padding-top:0.3em;
 }

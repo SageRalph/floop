@@ -4,6 +4,7 @@ require_once 'Lib.php';
 require_once 'DBInterface.php';
 require_once 'Friends.php';
 include_once 'Films.php';
+include_once 'TrailerLookup.php';
 
 
 // Removes URL encoding from string (eg. %20 for spaces)

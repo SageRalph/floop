@@ -65,6 +65,21 @@ function filmExists($title) {
 }
 
 /**
+ * Returns the title of film with $filmID.
+ * 
+ * @param {integer} $filmID
+ * @return {String}
+ */
+function getFilmTitle($filmID) {
+    $query = "SELECT title FROM Film WHERE filmID = ?";
+    $results = $GLOBALS['db']->select($query, array($filmID));
+
+    $result = $results[0]->title;
+
+    return $result;
+}
+
+/**
  * Creates a new film with $title provided.
  * 
  * @param {String} $title
@@ -99,7 +114,13 @@ function editFilm($filmID, $input) {
 
     // Convert trailers to embeddable URLs
     if ($property === "trailer") {
-        $value = embedableURL($value);
+
+        // Auto find trailer
+        if ($value === 'AUTO') {
+            $value = findTrailer(getFilmTitle($filmID));
+        } else {
+            $value = embedableURL($value);
+        }
     } // Check if duplicate title
     elseif ($property === "title") {
         if (filmExists($value)) {

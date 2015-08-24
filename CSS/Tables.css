@@ -1,34 +1,34 @@
 
 .Watched td{
-	background-color:#B2D1B2;
+    background-color:#B2D1B2;
 }
 
 .RatingField{
-	font-size:1em;
-	height:1.5em;
-	width:2em;
-	margin:0;
-	text-align:center;
+    font-size:1em;
+    height:1.5em;
+    width:2em;
+    margin:0;
+    text-align:center;
 }
 
 .TrailerCell{
-	overflow:hidden;
-	width:10em;
+    overflow:hidden;
+    width:10em;
 }
 
 .InvisibleCell{
-	background-color:transparent !important;
-	border:none;
+    background-color:transparent !important;
+    border:none;
 }
 
 .ModifiedCell{
-	background-color:#FFF5CC !important;
+    background-color:#FFF5CC !important;
 }
 
 table input[type=submit]{
-	font-size:0.8em;
-	padding:1em;
-	width:100%;
+    font-size:0.8em;
+    padding:1em;
+    width:100%;
 }
 
 table {
@@ -44,11 +44,11 @@ th {
     background-color: #dedede; /* Light grey */
 }
 td {
-	text-align: center;
+    text-align: center;
     border-width: 1px;
     padding: 0.5em;
     border-style: solid;
-	background-color:white;
+    background-color:white;
 }
 
 .Striped tr:nth-child(odd) {
@@ -57,4 +57,11 @@ td {
 
 .ToDo{
     background-color: #FAF882; /* Light orange */
+}
+
+.TableInput{
+    font-size: 1em;
+    margin:0;
+    text-align: center;
+    width:98%
 }
