@@ -3,28 +3,39 @@
 /**
  * Gets an array of all films in the database.
  * 
+ * @param {String} $viewerList
  * @return {array(Film)}
  */
-function getFilms() {
-    $query = "SELECT Film.filmID, SUM(rating) AS totalRating FROM Film "
-            . "LEFT JOIN Rating ON Film.filmID = Rating.filmID "
-            . "GROUP BY Film.filmID ORDER BY watched, totalRating DESC";
-
-    $results = $GLOBALS['db']->select($query, null);
-    $filmIDs = [];
-    foreach ($results as $result) {
-        $filmIDs[] = $result->filmID;
+function getFilms($viewerList) {
+    $users = null;
+    if ($viewerList === null) {
+        $query = "SELECT Film.filmID, SUM(rating) AS totalRating FROM Film "
+                . "LEFT JOIN Rating ON Film.filmID = Rating.filmID "
+                . "GROUP BY Film.filmID ORDER BY watched, totalRating DESC";
+    } else {
+        $users = explode(",", $viewerList);
+        $userString = "username = ? ";
+        $i = 1;
+        while ($i < count($users)) {
+            $userString.= "OR username = ? ";
+            $i++;
+        }
+        $query = "SELECT Film.filmID, SUM(CASE WHEN $userString"
+                . "THEN rating ELSE 0 END) AS totalRating FROM Film "
+                . "LEFT JOIN Rating ON Film.filmID = Rating.filmID "
+                . "GROUP BY Film.filmID ORDER BY watched, totalRating DESC";
     }
-    return(getFilmDetails($filmIDs));
+    $results = $GLOBALS['db']->select($query, $users);
+    return(getFilmDetails($results));
 }
 
 /**
- * Gets details for an array of $filmIDs.
+ * Gets details for an array of $rawFilms, (filmID, totalRating) pairs.
  * 
- * @param {array(integer)} $filmIDs
+ * @param {array(object)} $rawFilms
  * @return {array(Film)}
  */
-function getFilmDetails($filmIDs) {
+function getFilmDetails($rawFilms) {
     $films = [];
 
     $query = "SELECT filmID, title, trailer, watched FROM Film WHERE filmID = ?";
@@ -33,9 +44,13 @@ function getFilmDetails($filmIDs) {
             . "INNER JOIN Account ON Rating.username = Account.username "
             . "WHERE filmID = ? ORDER BY regDate";
 
-    foreach ($filmIDs as $filmID) {
+    foreach ($rawFilms as $rawFilm) {
+        $filmID = $rawFilm->filmID;
+        $totalRating = $rawFilm->totalRating === null ? 0 : $rawFilm->totalRating;
+
         $film = $GLOBALS['db']->select($query, array($filmID))[0];
         $film->ratings = $GLOBALS['db']->select($query2, array($filmID));
+        $film->totalRating = $totalRating;
         $films[] = $film;
     }
     return($films);

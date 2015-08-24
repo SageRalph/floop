@@ -3,6 +3,7 @@
     <head>
         <title>Floop - API</title>
         <meta charset="UTF-8">
+        <link rel="shortcut icon" href="../favicon.ico" />
         <link rel="stylesheet" href="../CSS/Global.css">
         <link rel="stylesheet" href="../CSS/Tables.css">
     </head>
@@ -43,8 +44,16 @@
 
             <tr>
                 <td>/films</td>
-                <td>List all films (default ordering)</td> 
+                <td>List all films in descending order of total rating</td> 
                 <td>Add new film</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>/films/viewers/{viewerList}</td>
+                <td>List all films in descending order of total rating by viewers in {viewerList}</td> 
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>

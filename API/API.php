@@ -45,7 +45,7 @@ if ($uri[0] === "accounts") {
     //URI format /films
     if (count($uri) === 1) {
         if ($method === "GET") {
-            $response = getFilms();
+            $response = getFilms(null);
         } elseif ($method === "POST") {
             $response = addFilm($requestBody);
         }
@@ -60,8 +60,13 @@ if ($uri[0] === "accounts") {
         }
     } elseif (count($uri) === 3) {
 
+        //URI format /films/viewers/$viewerList
+        if ($uri[1] === "viewers" && $method === "GET") {
+            $response = getFilms($uri[2]);
+        }
+
         //URI format /films/$filmID/watched
-        if ($uri[2] === "watched" && $method === "PUT") {
+        elseif ($uri[2] === "watched" && $method === "PUT") {
             $response = markWatched($uri[1], $requestBody);
         }
 
