@@ -9,4 +9,5 @@ https://github.com/google/google-api-php-client
 Install /src/Google folder in floop/Vendor/Google
 
 Folder structure should look like:
+
 {server root (eg. htdocs)}/floop/Vendor/Google/{contents of /src/Google}
