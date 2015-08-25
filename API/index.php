@@ -33,6 +33,14 @@
                 <td></td>
                 <td></td>
             </tr>
+            
+            <tr>
+                <td>/accounts/full</td>
+                <td>List all accounts in the database with full user details</td> 
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
 
             <tr>
                 <td>/accounts/{username}</td>

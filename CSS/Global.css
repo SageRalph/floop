@@ -61,8 +61,31 @@ ul{
 
 .UserList input[type=submit]{
     float:right;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    margin:0.05em;
 }
+
+.DetailList{
+    text-align:left;
+}
+
+.DetailList li{
+    display: inline;
+    list-style-type: none;
+    padding: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+    box-shadow:none;
+}
+
+.DetailList li:hover{
+    box-shadow: none;
+}
+
+.DetailList li:first-child{
+    margin-left: 0;
+}
+
 
 .TwoButton{
     width:49.5%;

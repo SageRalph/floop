@@ -32,11 +32,15 @@ if ($uri[0] === "accounts") {
         } elseif ($method === "POST") {
             $response = addAccount($requestBody);
         }
-    }
+    } elseif (count($uri) === 2) {
 
-    //URI format /accounts/$username
-    elseif (count($uri) === 2) {
-        if ($method === "DELETE") {
+        //URI format /accounts/full
+        if ($uri[1] === "full" && $method === "GET") {
+            $response = getUserDetails();
+        }
+
+        //URI format /accounts/$username
+        elseif ($method === "DELETE") {
             $response = deleteUser($uri[1]);
         }
     }

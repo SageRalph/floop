@@ -17,6 +17,17 @@ function getAccounts() {
 }
 
 /**
+ * Gets an array of all accounts in the database with full user details.
+ * 
+ * @return {array(object)}
+ */
+function getUserDetails() {
+    $query = "SELECT * FROM Account ORDER BY regDate";
+    $results = $GLOBALS['db']->select($query, null);
+    return($results);
+}
+
+/**
  * Creates a new user account with the username provided.
  * 
  * @param {String} $username
