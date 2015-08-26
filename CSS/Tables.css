@@ -13,7 +13,7 @@
 
 .TrailerCell{
     overflow:hidden;
-    width:10em;
+    width:6em;
 }
 
 .InvisibleCell{
@@ -32,19 +32,29 @@ table {
     margin: 2%;
     border-width: 1px;
     border-collapse: collapse;
+    border-left-style: groove;
 }
 th {
-    border-width: 1px;
     padding: 8px;
-    border-style: solid;
     background-color: #dedede; /* Light grey */
+}
+.UserCheckbox{
+    //display: none;
+}
+th.nameCell{
+    
 }
 td {
     text-align: center;
-    border-width: 1px;
     padding: 0.5em;
-    border-style: solid;
     background-color:white;
+}
+
+td, th{
+    border-width: 1px;
+    border-style: groove;
+    border-left-style: none;
+    border-right-style: none;
 }
 
 .Striped tr:nth-child(odd) {
@@ -59,5 +69,19 @@ td {
     font-size: 1em;
     margin:0;
     text-align: center;
-    width:98%
+    width:98%;
+    border-style:none;
+    background-color: transparent;
 }
+
+.TotalRatingCell{
+    border-style: groove;
+    width:2em;
+}
+
+.RatingCell{
+    width:2em;
+}
+/*.TitleCell{
+    border-right-style: groove;
+}*/
