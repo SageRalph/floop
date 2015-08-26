@@ -46,7 +46,7 @@
                 <td>/accounts/{username}</td>
                 <td></td> 
                 <td></td>
-                <td></td>
+                <td>Edit details of user with {username}, request body should be a two element array of the property name and value.</td>
                 <td>Deletes user with {username} and all associated records</td>
             </tr>
 
@@ -70,7 +70,7 @@
                 <td>/films/{filmID}</td>
                 <td></td> 
                 <td></td>
-                <td>Edit details of film with {filmID}</td>
+                <td>Edit details of film with {filmID}, request body should be a two element array of the property name and value.</td>
                 <td>Removes all rating for and deletes film of {filmID}</td>
             </tr>
 

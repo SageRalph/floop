@@ -40,7 +40,9 @@ if ($uri[0] === "accounts") {
         }
 
         //URI format /accounts/$username
-        elseif ($method === "DELETE") {
+        elseif ($method === "PUT") {
+            $response = editUser($uri[1], $requestBody);
+        } elseif ($method === "DELETE") {
             $response = deleteUser($uri[1]);
         }
     }

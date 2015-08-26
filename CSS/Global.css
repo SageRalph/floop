@@ -37,68 +37,9 @@ ul{
 .InvalidInput{
     border-color: red;
 }
-
 .hidden{
     display: none;
 }
-
-.UserList{
-    text-align:center;
-}
-
-.UserList li{
-    font-size: 1.2em;
-    background-color: white;
-    margin:1em;
-    list-style: none;
-    box-shadow: 0 0 0.5em grey;
-    border-radius: 0.3em;
-    padding:0.3em;
-}
-.UserList li:hover{
-    box-shadow: 0 0 0.5em #CC9900;
-}
-
-.UserList input[type=submit]{
-    float:right;
-    font-size: 0.9em;
-    margin:0.05em;
-}
-
-.DetailList{
-    text-align:left;
-}
-
-.DetailList li{
-    display: inline;
-    list-style-type: none;
-    padding: 0;
-    padding-left: 2%;
-    padding-right: 2%;
-    box-shadow:none;
-}
-
-.DetailList li:hover{
-    box-shadow: none;
-}
-
-.DetailList li:first-child{
-    margin-left: 0;
-}
-
-
-.TwoButton{
-    width:49.5%;
-    margin:0%;
-    font-size: 1em;
-    text-align: center;
-}
-
-input[type=submit].TwoButton{
-    font-size: 1em;
-}
-
-input[type=submit].Mini{
-    height:1em;
-    padding-top:0.3em;
+.Modified{
+    background-color:#FFF5CC !important;
 }

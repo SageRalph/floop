@@ -57,3 +57,21 @@ function deleteUser($username) {
 
     return reportStatus($result);
 }
+
+
+/**
+ * Updates a property of user with $username
+ * Input should be an array of 2 elements, the property to modify and the value.
+ * 
+ * @param {String} $username
+ * @param {array} $input
+ */
+function editUser($username, $input) {
+
+    $property = $input[0];
+    $value = $input[1];
+    
+    $query = "UPDATE Account SET $property = ? WHERE username = ?";
+    $result = $GLOBALS['db']->run($query, array($value, $username));
+    return reportStatus($result);
+}
