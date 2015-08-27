@@ -1,6 +1,6 @@
 
 .Watched td{
-    background-color:#B2D1B2;
+    background-color:#B2D1B2; /* Light green */
 }
 
 .RatingField{
@@ -32,18 +32,14 @@ table {
     margin: 2%;
     border-width: 1px;
     border-collapse: collapse;
-    border-left-style: groove;
+    border-left-style: solid;
+    border-color: grey;
 }
 th {
     padding: 8px;
     background-color: #dedede; /* Light grey */
 }
-.UserCheckbox{
-    //display: none;
-}
-th.nameCell{
-    
-}
+
 td {
     text-align: center;
     padding: 0.5em;
@@ -52,7 +48,8 @@ td {
 
 td, th{
     border-width: 1px;
-    border-style: groove;
+    border-style: solid;
+    border-color: grey;
     border-left-style: none;
     border-right-style: none;
 }
@@ -75,13 +72,17 @@ td, th{
 }
 
 .TotalRatingCell{
-    border-style: groove;
     width:2em;
+    border-right-style: solid;
 }
 
 .RatingCell{
     width:2em;
 }
-/*.TitleCell{
-    border-right-style: groove;
-}*/
+
+th.RatingCell{
+    background-color: #BABABA; /* Dark grey */
+}
+th.Checked{
+    background-color: #dedede; /* Light grey */
+}
