@@ -18,6 +18,11 @@
 
 .InvisibleCell{
     background-color:transparent !important;
+    border-bottom:none;
+}
+
+.FullInvisibleCell{
+    background-color:transparent !important;
     border:none;
 }
 
@@ -33,11 +38,10 @@ table {
     border-width: 1px;
     border-collapse: collapse;
     border-left-style: solid;
-    border-color: grey;
 }
 th {
     padding: 8px;
-    background-color: #dedede; /* Light grey */
+    background-color: orange; /* Light grey */
 }
 
 td {
@@ -52,14 +56,6 @@ td, th{
     border-color: grey;
     border-left-style: none;
     border-right-style: none;
-}
-
-.Striped tr:nth-child(odd) {
-    background: #F0F0F0;
-}
-
-.ToDo{
-    background-color: #FAF882; /* Light orange */
 }
 
 .TableInput{
@@ -81,8 +77,8 @@ td, th{
 }
 
 th.RatingCell{
-    background-color: #BABABA; /* Dark grey */
+    background-color: orange; /* Dark grey */
 }
 th.Checked{
-    background-color: #dedede; /* Light grey */
+    background-color: darkorange; /* Light grey */
 }

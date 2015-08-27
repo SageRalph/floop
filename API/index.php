@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <link rel="shortcut icon" href="../favicon.ico" />
         <link rel="stylesheet" href="../CSS/Global.css">
-        <link rel="stylesheet" href="../CSS/Tables.css">
+        <link rel="stylesheet" href="../CSS/API.css">
     </head>
 
     <body>

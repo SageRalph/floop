@@ -1,0 +1,25 @@
+
+table {
+    font-family:Verdana,"Sans-serif";
+    margin: 2%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td{
+    border-style: solid;
+    border-width: 1px;
+    padding:8px;
+}
+
+th {
+    background-color: lightgray;
+}
+
+.Striped tr:nth-child(odd) {
+    background: #F0F0F0;
+}
+
+.ToDo{
+    background-color: #FAF882; /* Light orange */
+}
