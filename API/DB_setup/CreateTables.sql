@@ -5,6 +5,8 @@ email       VARCHAR(254),
 phone       VARCHAR(16),
 studentNo   VARCHAR(6)
 );
+
+
 CREATE TABLE Film (
 filmID      INTEGER	AUTO_INCREMENT	PRIMARY KEY,
 title       VARCHAR(30)	NOT NULL,
@@ -28,4 +30,20 @@ INDEX	(filmID),
 CONSTRAINT  PK_Rating           PRIMARY KEY(filmID, username),
 CONSTRAINT  FK_RatingUsername   FOREIGN KEY(username)	REFERENCES Account(username),
 CONSTRAINT  FK_RatingFilmID     FOREIGN KEY(filmID)	REFERENCES Film(filmID)
+);
+
+
+CREATE TABLE Food (
+itemName    VARCHAR(30) PRIMARY KEY,
+lastEdit    DATETIME    DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE Stock (
+username    VARCHAR(30),
+itemName    VARCHAR(30),
+amount      INTEGER	NOT NULL,
+INDEX   (username),
+INDEX	(itemName),
+CONSTRAINT  PK_Stock            PRIMARY KEY(itemName, username),
+CONSTRAINT  FK_StockUsername    FOREIGN KEY(username)	REFERENCES Account(username),
+CONSTRAINT  FK_StockitemName    FOREIGN KEY(itemName)	REFERENCES Food(itemName)
 );
