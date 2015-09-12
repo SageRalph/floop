@@ -19,4 +19,4 @@ Folder structure should look like:
 {server root (eg. htdocs)}/floop/Vendor/Google/{contents of /src/Google}
 
 Without this dependency, automatic trailer fetching will not function, but will fail gracefully.
-No other components are affected.
+No other components are affected and trailer URLs can still be entered manually.
