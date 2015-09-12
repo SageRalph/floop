@@ -4,9 +4,9 @@ Main folder must be located in server root directory (eg. htdocs).
 Database will be created automatically upon first load.
 
 The program is designed for and has been tested to work with servers running the following software of at least the version specified:
-Apache 2.4.4 
-MySQL 5.5.32 (Community Server) 
-PHP 5.4.2
+- Apache 2.4.4 
+- MySQL 5.5.32 (Community Server) 
+- PHP 5.4.2
 
 Dependencies
 ------------------------------------------------------------------
