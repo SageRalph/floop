@@ -8,11 +8,10 @@
  */
 function getFilms($viewerList) {
     $users = null;
-    if ($viewerList === null) {
-        $query = "SELECT Film.filmID, SUM(rating) AS totalRating FROM Film "
-                . "LEFT JOIN Rating ON Film.filmID = Rating.filmID "
-                . "GROUP BY Film.filmID ORDER BY watched, totalRating DESC";
-    } else {
+    $sumString = "rating";
+
+    // If a list of users is specified add filter
+    if ($viewerList !== null) {
         $users = explode(",", $viewerList);
         $userString = "username = ? ";
         $i = 1;
@@ -20,11 +19,13 @@ function getFilms($viewerList) {
             $userString.= "OR username = ? ";
             $i++;
         }
-        $query = "SELECT Film.filmID, SUM(CASE WHEN $userString"
-                . "THEN rating ELSE 0 END) AS totalRating FROM Film "
-                . "LEFT JOIN Rating ON Film.filmID = Rating.filmID "
-                . "GROUP BY Film.filmID ORDER BY watched, totalRating DESC";
+        $sumString = "CASE WHEN $userString THEN rating ELSE 0 END";
     }
+
+    $query = "SELECT Film.filmID, SUM($sumString) AS totalRating FROM Film "
+            . "LEFT JOIN Rating ON Film.filmID = Rating.filmID "
+            . "GROUP BY Film.filmID ORDER BY watched, totalRating DESC";
+
     $results = $GLOBALS['db']->select($query, $users);
     return(getFilmDetails($results));
 }
