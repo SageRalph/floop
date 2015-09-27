@@ -6,7 +6,7 @@ INSERT INTO Account (username)  VALUES ('Tom' );
 
 INSERT INTO Film (title, watched, trailer)  VALUES ('Pans labrinth ',       false,  'https://www.youtube.com/embed/O9Rdqm_74C0');
 INSERT INTO Film (title, watched, trailer)  VALUES ('Prometheus & Alien',   true,   'https://www.youtube.com/embed/xSNxqgUdPBI');
-INSERT INTO Film (title, watched, progress) VALUES ('Community',            true,   'Season 6 Episode 1');
+INSERT INTO Film (title, watched, progress) VALUES ('Community',            true,   'S6 E1');
 INSERT INTO Film (title, watched)           VALUES ('Terminator',           true    );
 INSERT INTO Film (title, watched)           VALUES ('The imitation game',   false   );
 
@@ -31,7 +31,7 @@ INSERT INTO Rating VALUES (3,	'Tom',	5);
 INSERT INTO Rating VALUES (4,	'David',2);
 INSERT INTO Rating VALUES (4,	'Tom',	3);
 
-INSERT INTO Food (itemName)  VALUES ('Chicken strips');
+INSERT INTO Food (itemName, NOTES)  VALUES ('Chicken strips', 'Example of a note');
 INSERT INTO Food (itemName)  VALUES ('Cheesecake');
 INSERT INTO Food (itemName)  VALUES ('Chips');
 

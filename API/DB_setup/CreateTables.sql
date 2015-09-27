@@ -11,8 +11,9 @@ CREATE TABLE Film (
 filmID      INTEGER	AUTO_INCREMENT	PRIMARY KEY,
 title       VARCHAR(30)	NOT NULL,
 trailer     VARCHAR(50),
-progress    VARCHAR(20),
+progress    VARCHAR(10),
 releaseYear INTEGER,
+duration    INTEGER,
 watched     BOOLEAN     NOT NULL
 );
 CREATE TABLE FilmGenre (
@@ -36,12 +37,13 @@ CONSTRAINT  FK_RatingFilmID     FOREIGN KEY(filmID)	REFERENCES Film(filmID)
 
 CREATE TABLE Food (
 itemName    VARCHAR(30) PRIMARY KEY,
+notes       VARCHAR(30),
 lastEdit    DATETIME    DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE Stock (
 username    VARCHAR(30),
 itemName    VARCHAR(30),
-amount      INTEGER	NOT NULL,
+stock       INTEGER	NOT NULL,
 INDEX   (username),
 INDEX	(itemName),
 CONSTRAINT  PK_Stock            PRIMARY KEY(itemName, username),

@@ -33,7 +33,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            
+
             <tr>
                 <td>/accounts/full</td>
                 <td>List all accounts in the database with full user details</td> 
@@ -49,6 +49,8 @@
                 <td>Edit details of user with {username}, request body should be a two element array of the property name and value.</td>
                 <td>Deletes user with {username} and all associated records</td>
             </tr>
+
+
 
             <tr>
                 <td>/films</td>
@@ -80,6 +82,40 @@
                 <td></td>
                 <td>Modifies the rating given for film {filmID} by {viewer}</td>
                 <td>Deletes the rating given for film {filmID} by {viewer}</td>
+            </tr>
+
+
+
+            <tr>
+                <td>/food</td>
+                <td>List all foods in descending order of total stock</td> 
+                <td>Add new food</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>/food/viewers/{viewerList}</td>
+                <td>List all foods in descending order of total stock by viewers in {viewerList}</td> 
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>/food/{itemName}</td>
+                <td></td> 
+                <td></td>
+                <td>Edit details of food with {itemName}, request body should be a two element array of the property name and value.</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>/food/{itemName}/{viewer}</td>
+                <td></td> 
+                <td></td>
+                <td>Modifies the stock given for food {itemName} by {viewer}</td>
+                <td>Deletes the stock given for food {itemName} by {viewer}</td>
             </tr>
 
         </table>

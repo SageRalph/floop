@@ -39,8 +39,7 @@ function getFilms($viewerList) {
 function getFilmDetails($rawFilms) {
     $films = [];
 
-    $query = "SELECT filmID, title, trailer, watched, progress "
-            . "FROM Film WHERE filmID = ?";
+    $query = "SELECT * FROM Film WHERE filmID = ?";
 
     $query2 = "SELECT Rating.username, rating FROM Rating "
             . "INNER JOIN Account ON Rating.username = Account.username "

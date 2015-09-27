@@ -12,6 +12,7 @@
         <script src='./lib/Navigation.js'></script>
         <script src='./lib/Friends.js'></script>
         <script src='./lib/Films.js'></script>
+        <script src='./lib/Freezer.js'></script>
     </head>
     <body>
 

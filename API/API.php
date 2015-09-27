@@ -5,6 +5,7 @@ require_once 'DBInterface.php';
 require_once 'Friends.php';
 include_once 'Films.php';
 include_once 'TrailerLookup.php';
+include_once 'Freezer.php';
 
 
 // Removes URL encoding from string (eg. %20 for spaces)
@@ -78,8 +79,37 @@ if ($uri[0] === "accounts") {
             $response = deleteFilmRating($uri[1], $uri[2]);
         }
     }
-}
+} elseif ($uri[0] === "food") {
 
+    //URI format /food
+    if (count($uri) === 1) {
+        if ($method === "GET") {
+            $response = getFoods(null);
+        } elseif ($method === "POST") {
+            $response = addFood($requestBody);
+        }
+    }
+
+    //URI format /foods/$itemName
+    elseif (count($uri) === 2) {
+        if ($method === "PUT") {
+            $response = editFood($uri[1], $requestBody);
+        }
+    } elseif (count($uri) === 3) {
+
+        //URI format /foods/viewers/$viewerList
+        if ($uri[1] === "viewers" && $method === "GET") {
+            $response = getFoods($uri[2]);
+        }
+
+        //URI format /foods/$itemName/$viewer
+        elseif ($method === "PUT") {
+            $response = rateFood($uri[1], $uri[2], $requestBody);
+        } elseif ($method === "DELETE") {
+            $response = deleteFoodRating($uri[1], $uri[2]);
+        }
+    }
+}
 
 $db->close();
 
