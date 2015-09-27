@@ -41,8 +41,8 @@ notes       VARCHAR(30),
 lastEdit    DATETIME    DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE Stock (
-username    VARCHAR(30),
 itemName    VARCHAR(30),
+username    VARCHAR(30),
 stock       INTEGER	NOT NULL,
 INDEX   (username),
 INDEX	(itemName),

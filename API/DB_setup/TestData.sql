@@ -36,9 +36,9 @@ INSERT INTO Food (itemName)  VALUES ('Cheesecake');
 INSERT INTO Food (itemName)  VALUES ('Chips');
 
 -- username, itemName, amount
-INSERT INTO Stock VALUES ('Josh',   'Chips',     1);
-INSERT INTO Stock VALUES ('Josh',   'Cheesecake',1);
-INSERT INTO Stock VALUES ('Ryan',   'Cheesecake',3);
-INSERT INTO Stock VALUES ('David',  'Cheesecake',1);
+INSERT INTO Stock VALUES ('Chips',      'Josh', 1);
+INSERT INTO Stock VALUES ('Cheesecake', 'Josh', 1);
+INSERT INTO Stock VALUES ('Cheesecake', 'Ryan', 3);
+INSERT INTO Stock VALUES ('Cheesecake', 'David',1);
 
 COMMIT;

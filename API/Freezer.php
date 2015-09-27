@@ -67,3 +67,94 @@ function editFood($itemName, $input) {
     $result = $GLOBALS['db']->run($query, array($value, $itemName));
     return reportStatus($result);
 }
+
+/* * ***************************************************************************
+ * STOCK
+ * ************************************************************************** */
+
+/**
+ * Returns the stock of food with $itemName by $user.
+ * 
+ * @param {String} $user
+ * @param {integer} $itemName
+ * @return {integer}
+ */
+function getStockBy($user, $itemName) {
+    $query = "SELECT stock FROM Stock WHERE itemName = ? AND username = ?";
+    $results = $GLOBALS['db']->select($query, array($itemName, $user));
+
+    if (sizeOf($results) === 0) {
+        http_response_code(404); // Not Found
+        return $results;
+    }
+    $result = $results[0]->stock;
+
+    return $result;
+}
+
+/**
+ * Returns whether $user has and existing stock for food with $itemName.
+ * 
+ * @param {integer} $itemName
+ * @param {String} $user
+ * @return {boolean}
+ */
+function hasStock($itemName, $user) {
+    return sizeOf(getStockBy($user, $itemName)) !== 0;
+}
+
+/**
+ * Creates or updates the stock of food with $itemName 
+ * by user with $username to $value.
+ * 
+ * @param {String} $itemName
+ * @param {String} $username
+ * @param {integer} $value
+ */
+function stockFood($itemName, $username, $value) {
+
+    if (!hasStock($itemName, $username)) {
+        $result = createFoodStock($itemName, $username, $value);
+    } else {
+        $result = modifyFoodStock($itemName, $username, $value);
+    }
+
+    return reportStatus($result);
+}
+
+/**
+ * Creates a new stock of food with $itemName by user with $username of $value.
+ * 
+ * @param {integer} $itemName
+ * @param {String} $username
+ * @param {integer} $value
+ */
+function createFoodStock($itemName, $username, $value) {
+    $query = "INSERT INTO Stock VALUES (?,?,?);";
+    return $GLOBALS['db']->run($query, array($itemName, $username, $value));
+}
+
+/**
+ * Updates the value of an existing stock of food 
+ * with $itemName by user with $username to $value.
+ * 
+ * @param {integer} $itemName
+ * @param {String} $username
+ * @param {integer} $value
+ */
+function modifyFoodStock($itemName, $username, $value) {
+    $query = "UPDATE Stock SET stock = ? WHERE itemName = ? AND username = ?";
+    return $GLOBALS['db']->run($query, array($value, $itemName, $username));
+}
+
+/**
+ * Deletes stock of food with $itemName by user with $username.
+ * 
+ * @param {String} $itemName
+ * @param {String} $username
+ */
+function deleteFoodStock($itemName, $username) {
+    $query = "DELETE FROM Stock WHERE itemName = ? AND username = ?";
+    $result = $GLOBALS['db']->run($query, array($itemName, $username));
+    return reportStatus($result);
+}

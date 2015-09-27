@@ -104,9 +104,9 @@ if ($uri[0] === "accounts") {
 
         //URI format /foods/$itemName/$viewer
         elseif ($method === "PUT") {
-            $response = rateFood($uri[1], $uri[2], $requestBody);
+            $response = stockFood($uri[1], $uri[2], $requestBody);
         } elseif ($method === "DELETE") {
-            $response = deleteFoodRating($uri[1], $uri[2]);
+            $response = deleteFoodStock($uri[1], $uri[2]);
         }
     }
 }
