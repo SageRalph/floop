@@ -39,7 +39,8 @@ function getFilms($viewerList) {
 function getFilmDetails($rawFilms) {
     $films = [];
 
-    $query = "SELECT filmID, title, trailer, watched FROM Film WHERE filmID = ?";
+    $query = "SELECT filmID, title, trailer, watched, progress "
+            . "FROM Film WHERE filmID = ?";
 
     $query2 = "SELECT Rating.username, rating FROM Rating "
             . "INNER JOIN Account ON Rating.username = Account.username "
@@ -166,18 +167,6 @@ function deleteFilm($filmID) {
         WHERE filmID = ?";
     $result = $GLOBALS['db']->run($query, array($filmID));
 
-    return reportStatus($result);
-}
-
-/**
- * Sets the watched status of film with $filmID to $value. 
- * 
- * @param {String} $filmID
- * @param {boolean} $value
- */
-function markWatched($filmID, $value) {
-    $query = "UPDATE Film SET watched = ? WHERE filmID = ?";
-    $result = $GLOBALS['db']->run($query, array($value, $filmID));
     return reportStatus($result);
 }
 

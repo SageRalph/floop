@@ -82,14 +82,6 @@
                 <td>Deletes the rating given for film {filmID} by {viewer}</td>
             </tr>
 
-            <tr>
-                <td>/films/{title}/watched</td>
-                <td></td> 
-                <td></td>
-                <td>Sets whether the film has been watched</td>
-                <td></td>
-            </tr>
-
         </table>
 
     </body>

@@ -11,6 +11,7 @@ CREATE TABLE Film (
 filmID      INTEGER	AUTO_INCREMENT	PRIMARY KEY,
 title       VARCHAR(30)	NOT NULL,
 trailer     VARCHAR(50),
+progress    VARCHAR(20),
 releaseYear INTEGER,
 watched     BOOLEAN     NOT NULL
 );

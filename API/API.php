@@ -71,11 +71,6 @@ if ($uri[0] === "accounts") {
             $response = getFilms($uri[2]);
         }
 
-        //URI format /films/$filmID/watched
-        elseif ($uri[2] === "watched" && $method === "PUT") {
-            $response = markWatched($uri[1], $requestBody);
-        }
-
         //URI format /films/$filmID/$viewer
         elseif ($method === "PUT") {
             $response = rateFilm($uri[1], $uri[2], $requestBody);

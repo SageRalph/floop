@@ -6,6 +6,7 @@ INSERT INTO Account (username)  VALUES ('Tom' );
 
 INSERT INTO Film (title, watched, trailer)  VALUES ('Pans labrinth ',       false,  'https://www.youtube.com/embed/O9Rdqm_74C0');
 INSERT INTO Film (title, watched, trailer)  VALUES ('Prometheus & Alien',   true,   'https://www.youtube.com/embed/xSNxqgUdPBI');
+INSERT INTO Film (title, watched, progress) VALUES ('Community',            true,   'Season 6 Episode 1');
 INSERT INTO Film (title, watched)           VALUES ('Terminator',           true    );
 INSERT INTO Film (title, watched)           VALUES ('The imitation game',   false   );
 
