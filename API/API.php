@@ -84,25 +84,30 @@ if ($uri[0] === "accounts") {
     //URI format /food
     if (count($uri) === 1) {
         if ($method === "GET") {
-            $response = getFoods(null);
+            $response = getFoods(null, null);
         } elseif ($method === "POST") {
             $response = addFood($requestBody);
         }
     }
 
-    //URI format /foods/$itemName
+    //URI format /food/$itemName
     elseif (count($uri) === 2) {
         if ($method === "PUT") {
             $response = editFood($uri[1], $requestBody);
         }
     } elseif (count($uri) === 3) {
 
-        //URI format /foods/viewers/$viewerList
-        if ($uri[1] === "viewers" && $method === "GET") {
-            $response = getFoods($uri[2]);
+        //URI format /food/search/$term
+        if ($uri[1] === "search" && $method === "GET") {
+            $response = getFoods(null, $uri[2]);
         }
 
-        //URI format /foods/$itemName/$viewer
+        //URI format /food/viewers/$viewerList
+        elseif ($uri[1] === "viewers" && $method === "GET") {
+            $response = getFoods($uri[2], null);
+        }
+
+        //URI format /food/$itemName/$viewer
         elseif ($method === "PUT") {
             $response = stockFood($uri[1], $uri[2], $requestBody);
         } elseif ($method === "DELETE") {

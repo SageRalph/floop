@@ -31,9 +31,9 @@ INSERT INTO Rating VALUES (3,	'Tom',	5);
 INSERT INTO Rating VALUES (4,	'David',2);
 INSERT INTO Rating VALUES (4,	'Tom',	3);
 
-INSERT INTO Food (itemName, NOTES)  VALUES ('Chicken strips', 'Example of a note');
+INSERT INTO Food (itemName)  VALUES ('Chicken strips');
 INSERT INTO Food (itemName)  VALUES ('Cheesecake');
-INSERT INTO Food (itemName)  VALUES ('Chips');
+INSERT INTO Food (itemName, NOTES)  VALUES ('Chips', 'Example of a note');
 
 -- username, itemName, amount
 INSERT INTO Stock VALUES ('Chips',      'Josh', 1);

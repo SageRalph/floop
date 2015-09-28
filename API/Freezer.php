@@ -6,9 +6,10 @@
  * @param {String} $userList
  * @return {array(object)}
  */
-function getFoods($userList) {
+function getFoods($userList, $term) {
     $users = null;
     $sumString = "stock";
+    $condition = "HAVING totalStock > 0 ";
 
     // If a list of users is specified add filter
     if ($userList !== null) {
@@ -22,10 +23,15 @@ function getFoods($userList) {
         $sumString = "CASE WHEN $userString THEN stock ELSE 0 END";
     }
 
-    $query = "SELECT Food.itemName, notes, SUM($sumString) AS totalStock FROM Food "
-            . "LEFT JOIN Stock ON Food.itemName = Stock.itemName "
+    // Filter by search term if specified, else only show items in stock.
+    if ($term !== null) {
+        $condition = "WHERE Food.itemName LIKE '%$term%'";
+    }
+
+    $query = "SELECT Food.itemName, notes, SUM($sumString) AS totalStock "
+            . "FROM Food LEFT JOIN Stock ON Food.itemName = Stock.itemName "
             . "GROUP BY Food.itemName "
-            . "HAVING totalStock > 0 "
+            . "$condition"
             . "ORDER BY totalStock DESC";
 
     $results = $GLOBALS['db']->select($query, $users);

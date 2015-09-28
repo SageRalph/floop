@@ -88,8 +88,16 @@
 
             <tr>
                 <td>/food</td>
-                <td>List all foods in descending order of total stock</td> 
+                <td>List all foods currently in stock descending order of total stock</td> 
                 <td>Add new food</td>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td>/food/search/{term}</td>
+                <td>List all foods like {term} in descending order of total stock</td> 
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>
