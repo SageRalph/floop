@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="./CSS/Navigation.css">
         <link rel="stylesheet" href="./CSS/Tables.css">
         <link rel="stylesheet" href="./CSS/Friends.css">
+        <link rel="stylesheet" href="./CSS/Freezer.css">
         <script src='./lib/lib.js'></script>
         <script src='./lib/Navigation.js'></script>
         <script src='./lib/Friends.js'></script>

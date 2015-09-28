@@ -1,15 +1,22 @@
 <?php
 
+/* * ***************************************************************************
+ * RETREIVING FOOD
+ * ************************************************************************** */
+
 /**
- * Gets an array of all foods in the database.
+ * Gets an array of all foods in the database ordered by total stock.
+ * Total stock is counted only for users in $userList, or all users if null.
+ * If a search $term is provided, only results containing the term are returned,
+ * otherwise, only items that are in stock (for selected users) are returned.
  * 
- * @param {String} $userList
+ * @param {array(String)} $userList
+ * @param {String} $term
  * @return {array(object)}
  */
 function getFoods($userList, $term) {
     $users = null;
     $sumString = "stock";
-    $condition = "HAVING totalStock > 0 ";
 
     // If a list of users is specified add filter
     if ($userList !== null) {
@@ -24,15 +31,16 @@ function getFoods($userList, $term) {
     }
 
     // Filter by search term if specified, else only show items in stock.
+    $condition = "HAVING totalStock > 0";
     if ($term !== null) {
-        $condition = "WHERE Food.itemName LIKE '%$term%'";
+        $condition = "HAVING Food.itemName LIKE '%$term%'";
     }
 
     $query = "SELECT Food.itemName, notes, SUM($sumString) AS totalStock "
             . "FROM Food LEFT JOIN Stock ON Food.itemName = Stock.itemName "
             . "GROUP BY Food.itemName "
-            . "$condition"
-            . "ORDER BY totalStock DESC";
+            . "$condition "
+            . "ORDER BY totalStock DESC, lastEdit DESC";
 
     $results = $GLOBALS['db']->select($query, $users);
     return(getFoodStock($results));
@@ -55,6 +63,22 @@ function getFoodStock($items) {
     }
 
     return($items);
+}
+
+/* * ***************************************************************************
+ * ADDING, EDITING & DELETING FOOD
+ * ************************************************************************** */
+
+/**
+ * Creates a new food with $itemName provided.
+ * 
+ * @param {String} $itemName
+ * @return {boolean}
+ */
+function addFood($itemName) {
+    $query = "INSERT INTO Food (itemName) VALUES (?)";
+    $result = $GLOBALS['db']->run($query, array($itemName));
+    return reportStatus($result);
 }
 
 /**
@@ -119,6 +143,8 @@ function hasStock($itemName, $user) {
  */
 function stockFood($itemName, $username, $value) {
 
+    setFoodLastModified($itemName);
+
     if (!hasStock($itemName, $username)) {
         $result = createFoodStock($itemName, $username, $value);
     } else {
@@ -163,4 +189,17 @@ function deleteFoodStock($itemName, $username) {
     $query = "DELETE FROM Stock WHERE itemName = ? AND username = ?";
     $result = $GLOBALS['db']->run($query, array($itemName, $username));
     return reportStatus($result);
+}
+
+/**
+ * Sets the last modified date for food with $itemName 
+ * to the current date & time.
+ * 
+ * @param {String} $itemName
+ * @return {boolean}
+ */
+function setFoodLastModified($itemName) {
+    $now = date("Y-m-d H:i:s");
+    $query = "UPDATE Food SET lastEdit = ? WHERE itemName = ?";
+    return $GLOBALS['db']->run($query, array($now, $itemName));
 }

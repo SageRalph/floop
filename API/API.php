@@ -114,6 +114,13 @@ if ($uri[0] === "accounts") {
             $response = deleteFoodStock($uri[1], $uri[2]);
         }
     }
+
+    //URI format /food/search/$term/viewers/$viewerList
+    elseif (count($uri) === 5) {
+        if ($uri[1] === "search" && $uri[3] === "viewers" && $method === "GET") {
+            $response = getFoods($uri[4], $uri[2]);
+        }
+    }
 }
 
 $db->close();

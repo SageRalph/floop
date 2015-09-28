@@ -1,0 +1,14 @@
+.FoodSearch{
+    width:100%;
+    text-align:center;
+    margin-top: 5.5em;
+}
+.FoodSearch input[type=submit]{
+    width:10%;
+    font-size: 1.2em;
+}
+.SearchBar{
+    width:60%;
+    font-size: 1.2em;
+    text-align: center;
+}
