@@ -3,17 +3,13 @@
     background-color:#B2D1B2; /* Light green */
 }
 
-.RatingField{
-    font-size:1em;
-    height:1.5em;
-    width:2em;
-    margin:0;
-    text-align:center;
-}
-
 .TrailerCell{
     overflow:hidden;
     width:6em;
+}
+
+.NotesCell{
+    width:20em;
 }
 
 .InvisibleCell{
@@ -26,12 +22,6 @@
     border:none;
 }
 
-table input[type=submit]{
-    font-size:0.8em;
-    padding:1em;
-    width:100%;
-}
-
 table {
     font-family:Verdana,"Sans-serif";
     margin: 2%;
@@ -42,12 +32,14 @@ table {
 th {
     padding: 8px;
     background-color: orange; /* Light grey */
+    height: 2.5em;
 }
 
 td {
     text-align: center;
     padding: 0.5em;
     background-color:white;
+    height: 2.5em;
 }
 
 td, th{
@@ -67,18 +59,34 @@ td, th{
     background-color: transparent;
 }
 
-.TotalRatingCell{
+
+
+
+
+.UserCell{
+    background-color: orange;
+}
+
+.TotalCell{
     width:2em;
     border-right-style: solid;
 }
 
-.RatingCell{
+table input[type=number]{
+    font-size:1em;
+    height:1.5em;
+    margin:0;
+    text-align:center;
+}
+
+.RatingField{
     width:2em;
 }
 
-th.RatingCell{
-    background-color: orange; /* Dark grey */
+.StockField{
+    width:3em;
 }
+
 th.Checked{
     background-color: darkorange; /* Light grey */
 }

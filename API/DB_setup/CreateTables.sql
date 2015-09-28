@@ -37,13 +37,13 @@ CONSTRAINT  FK_RatingFilmID     FOREIGN KEY(filmID)	REFERENCES Film(filmID)
 
 CREATE TABLE Food (
 itemName    VARCHAR(30) PRIMARY KEY,
-notes       VARCHAR(30),
+notes       VARCHAR(50),
 lastEdit    DATETIME    DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE Stock (
 itemName    VARCHAR(30),
 username    VARCHAR(30),
-stock       INTEGER	NOT NULL,
+stock       DECIMAL(3,2)	NOT NULL,
 INDEX   (username),
 INDEX	(itemName),
 CONSTRAINT  PK_Stock            PRIMARY KEY(itemName, username),
