@@ -16,7 +16,7 @@ ul{
 }
 
 #SingleSection{
-    max-width:80em; /* Should be 60 for center align but causes FireFox buttons to be narrow when trailers embedded */
+    width:70em; /* Should be 60 for center align */
     margin-top:5em;
 
     margin-left: auto;

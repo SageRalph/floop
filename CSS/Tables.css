@@ -28,6 +28,7 @@ table {
     border-width: 1px;
     border-collapse: collapse;
     border-left-style: solid;
+    width:90%;
 }
 th {
     padding: 8px;
@@ -60,10 +61,8 @@ td, th{
 }
 
 
-
-
-
 .UserCell{
+    width: 3em;
     background-color: orange;
 }
 
