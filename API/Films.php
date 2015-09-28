@@ -168,6 +168,11 @@ function deleteFilm($filmID) {
         DELETE FROM Rating
         WHERE filmID = ?";
     $result = $GLOBALS['db']->run($query, array($filmID));
+    
+    $query = "
+        DELETE FROM FilmGenre
+        WHERE filmID = ?";
+    $result = $GLOBALS['db']->run($query, array($filmID));
 
     $query = "
         DELETE FROM Film
