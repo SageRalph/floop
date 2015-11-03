@@ -50,6 +50,8 @@
                 <td>Deletes user with {username} and all associated records</td>
             </tr>
 
+            
+            
 
 
             <tr>
@@ -67,13 +69,23 @@
                 <td></td>
                 <td></td>
             </tr>
+            
+            <!--
+            <tr>
+                <td>/films/genre/{condition}</td>
+                <td class="ToDo">Gets all films with genres matching {condition}, which should be a list of genres separated by logical operators eg.'action&comedy'. Results are listed in descending order of total rating.</td> 
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            -->
 
             <tr>
                 <td>/films/{filmID}</td>
                 <td></td> 
                 <td></td>
                 <td>Edit details of film with {filmID}, request body should be a two element array of the property name and value.</td>
-                <td>Removes all rating for and deletes film of {filmID}</td>
+                <td>Removes all rating for and deletes film with {filmID}</td>
             </tr>
 
             <tr>
@@ -83,6 +95,15 @@
                 <td>Modifies the rating given for film {filmID} by {viewer}</td>
                 <td>Deletes the rating given for film {filmID} by {viewer}</td>
             </tr>
+            
+            <tr>
+                <td>/films/{filmID}/genre/{genreList}</td>
+                <td></td> 
+                <td class="ToDo">Adds all genres in {genreList} to film with {filmID}</td>
+                <td></td>
+                <td class="ToDo">Removes all genres in {genreList} from film with {filmID}</td>
+            </tr>
+            
 
 
 
@@ -93,7 +114,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            
+
             <tr>
                 <td>/food/search/{term}</td>
                 <td>List all foods like {term} in descending order of total stock</td> 
@@ -105,6 +126,14 @@
             <tr>
                 <td>/food/viewers/{viewerList}</td>
                 <td>List all foods in descending order of total stock by viewers in {viewerList}</td> 
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>/food/search/{term}/viewers/{viewerList}</td>
+                <td>List all foods like {term} in descending order of total stock by viewers in {viewerList}</td> 
                 <td></td>
                 <td></td>
                 <td></td>

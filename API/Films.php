@@ -43,9 +43,11 @@ function getFilms($viewerList) {
 function getFilmDetails($rawFilms) {
     $films = [];
 
-    $query = "SELECT * FROM Film WHERE filmID = ?";
+    $detailsQuery = "SELECT * FROM Film WHERE filmID = ?";
 
-    $query2 = "SELECT Rating.username, rating FROM Rating "
+    $genresQuery = "SELECT genre FROM FilmGenre WHERE filmID = ?";
+
+    $ratingsQuery = "SELECT Rating.username, rating FROM Rating "
             . "INNER JOIN Account ON Rating.username = Account.username "
             . "WHERE filmID = ? ORDER BY regDate";
 
@@ -53,8 +55,9 @@ function getFilmDetails($rawFilms) {
         $filmID = $rawFilm->filmID;
         $totalRating = $rawFilm->totalRating === null ? 0 : $rawFilm->totalRating;
 
-        $film = $GLOBALS['db']->select($query, array($filmID))[0];
-        $film->ratings = $GLOBALS['db']->select($query2, array($filmID));
+        $film = $GLOBALS['db']->select($detailsQuery, array($filmID))[0];
+        $film->genres = $GLOBALS['db']->select($genresQuery, array($filmID));
+        $film->ratings = $GLOBALS['db']->select($ratingsQuery, array($filmID));
         $film->totalRating = $totalRating;
         $films[] = $film;
     }
@@ -168,7 +171,7 @@ function deleteFilm($filmID) {
         DELETE FROM Rating
         WHERE filmID = ?";
     $result = $GLOBALS['db']->run($query, array($filmID));
-    
+
     $query = "
         DELETE FROM FilmGenre
         WHERE filmID = ?";

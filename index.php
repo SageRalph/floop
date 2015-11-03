@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="./CSS/Freezer.css">
         <script src='./lib/lib.js'></script>
         <script src='./lib/Navigation.js'></script>
+        <script src='./lib/Tables.js'></script>
         <script src='./lib/Friends.js'></script>
         <script src='./lib/Films.js'></script>
         <script src='./lib/Freezer.js'></script>

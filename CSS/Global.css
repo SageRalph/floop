@@ -1,6 +1,5 @@
 body{
-    background-color: #CCE6FF; /* Light blue */
-    font-family: "Oxygen","Sans-serif";
+    font-family: "Ebrima";
     margin: 0;
     padding: 0;
 }
@@ -17,8 +16,7 @@ ul{
 
 #SingleSection{
     width:70em; /* Should be 60 for center align */
-    margin-top:5em;
-
+    margin-top:9em;
     margin-left: auto;
     margin-right: auto;
     position:relative;
@@ -27,11 +25,8 @@ ul{
 .Notification{
     margin:1em;
     text-align: center;
-    background-color: #F0F0F0;
     font-size: 1.5em;
-    border-radius: 1em;
     padding: 1em;
-    font-family:Verdana,"Sans-serif";
 }
 
 .InvalidInput{

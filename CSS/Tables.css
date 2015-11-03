@@ -1,6 +1,6 @@
 
 .Watched td{
-    background-color:#B2D1B2; /* Light green */
+    background-color: #ECF9EC;
 }
 
 .TrailerCell{
@@ -12,43 +12,34 @@
     width:20em;
 }
 
-.InvisibleCell{
-    background-color:transparent !important;
-    border-bottom:none;
-}
 
-.FullInvisibleCell{
-    background-color:transparent !important;
-    border:none;
-}
 
 table {
-    font-family:Verdana,"Sans-serif";
     margin: 2%;
     border-width: 1px;
     border-collapse: collapse;
-    border-left-style: solid;
     width:90%;
 }
 th {
     padding: 8px;
-    background-color: orange; /* Light grey */
-    height: 2.5em;
+    background-color: orange;
+    font-weight: normal;
+    font-size: 1.2em;
 }
 
 td {
     text-align: center;
-    padding: 0.5em;
+    padding: 0.3em;
     background-color:white;
     height: 2.5em;
+    transition: all 0.3s ease 0.1s;
 }
 
 td, th{
     border-width: 1px;
-    border-style: solid;
-    border-color: grey;
-    border-left-style: none;
-    border-right-style: none;
+    border-style: none;
+    border-top-style: solid;
+    border-color: gold;
 }
 
 .TableInput{
@@ -68,7 +59,6 @@ td, th{
 
 .TotalCell{
     width:2em;
-    border-right-style: solid;
 }
 
 table input[type=number]{

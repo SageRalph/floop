@@ -7,23 +7,24 @@
     position: fixed;
     width:100%;
     z-index: 2;
+    background-color: #34404E;
+    font-family: "Kozuka Gothic Pro",sans-serif;
 }
 .navBar h1{
     text-align: center;
     margin: 0;
-    padding: 0;
-    padding-bottom:0;
+    padding: 0.1em 0 0.1em 0;
     width:100%;
-    background-color: grey;
-    color:white;
-    font-size: 1.6em;
+    color:orange;
+    font-size: 3em;
+    font-family: forte;
+    font-weight: normal;
 }
 .navBar ol{
-    background-color: silver;
     margin: 0;
     padding: 0;
     text-align: center;
-
+    color:white;
     white-space:nowrap;
     overflow-x:hidden;
     overflow-y:hidden;
@@ -44,7 +45,8 @@
     font-size:0.7em;
 }
 #currentTab{
-    background-color: #CCE6FF;
+    background-color: white;
+    color:black;
     padding-bottom:0.3em;
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em;
