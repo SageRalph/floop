@@ -2,6 +2,7 @@ body{
     font-family: "Ebrima";
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 .anchor{
     display: block; 
@@ -16,7 +17,7 @@ ul{
 
 #SingleSection{
     width:70em; /* Should be 60 for center align */
-    margin-top:9em;
+    margin-top:9.5em;
     margin-left: auto;
     margin-right: auto;
     position:relative;
