@@ -3,7 +3,7 @@
     <head>
         <title>Floop</title>
         <meta charset="UTF-8">
-        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="shortcut icon" href="./Res/favicon.ico" />
         <link rel="stylesheet" href="./CSS/Global.css">
         <link rel="stylesheet" href="./CSS/Navigation.css">
         <link rel="stylesheet" href="./CSS/Tables.css">

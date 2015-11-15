@@ -59,3 +59,16 @@ ul{
     font-size: 1.2em;
     text-align: center;
 }
+
+
+#CenteredVideoContainer{
+    position:absolute;
+    top:0;
+    height:100%;
+    width:100%;
+    background:white;
+}
+#CenteredVideoContainer iframe{
+    height:92%;
+    width:100%;
+}

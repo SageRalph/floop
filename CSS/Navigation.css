@@ -37,7 +37,7 @@
     overflow-y: scroll;
 }
 .navBar li:hover{
-    text-shadow: 0 0 1em white, 0 0 1em white, 0 0 1em #CC9900;
+    text-shadow: 0 0 0.5em white, 0 0 0.5em white, 0 0 0.5em #CC9900;
 }
 .navBar input{
     margin: 0;

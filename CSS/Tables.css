@@ -36,6 +36,7 @@ th {
 .TableInput{
     font-size: 1em;
     margin:0;
+    width:90%;
     text-align: center;
     border-style:none;
     background-color: transparent;
@@ -64,6 +65,14 @@ th.Checked{
     background-color: darkorange;
 }
 
+/* Delete user cell */
+#userTable td.InvisibleCell{
+    width:1%;
+}
+#userTable th.InvisibleCell{
+    width:2%;
+}
+
 
 /* For scrollable tables */
 
@@ -78,7 +87,6 @@ tbody {
 thead {
     display: table-row;
 }
-
 
 .TrailerCell{
     overflow:hidden;
