@@ -112,7 +112,7 @@ function updateProperty(service, id, property, field, callback) {
     if (field.value !== field.initialValue) {
 
         var value = field.value !== "" ? field.value : null;
-        ajax('PUT', 'floop/' + service + '/' + id, [property, value], callback);
+        ajax('PUT', service + '/' + id, [property, value], callback);
     }
 }
 
@@ -346,7 +346,7 @@ function userFilterString(users) {
 //            if (field.value !== field.initialValue) {
 //
 //                var value = field.value !== "" ? field.value : null;
-//                ajax('PUT', 'floop/' + this.service + '/' + id, [property, value], callback);
+//                ajax('PUT', this.service + '/' + id, [property, value], callback);
 //            }
 //        };
 //

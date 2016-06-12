@@ -11,8 +11,8 @@ include_once 'Freezer.php';
 // Removes URL encoding from string (eg. %20 for spaces)
 $fullURI = urldecode(getenv('REQUEST_URI'));
 
-//URI starts with /floop/floop/ so uri[0-2] can be discarded
-$uri = array_slice(explode("/", $fullURI), 3); //array representing URI
+//URI starts with /floop/ so uri[0-1] can be discarded
+$uri = array_slice(explode("/", $fullURI), 2); //array representing URI
 
 $method = getenv('REQUEST_METHOD');
 $response = null;

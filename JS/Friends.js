@@ -9,7 +9,7 @@ function manageUsers() {
     clearDisplay();
     createNewUserContols();
     createUserTable();
-    ajax("GET", "floop/accounts/full", null, displayUsers);
+    ajax("GET", "accounts/full", null, displayUsers);
 }
 
 function createNewUserContols() {
@@ -34,7 +34,7 @@ function createNewUserContols() {
 function createUser() {
     var username = getElem('newUserNameField').value;
     if (isSet(username)) {
-        ajax("POST", "floop/accounts", username, manageUsers);
+        ajax("POST", "accounts", username, manageUsers);
     }
 }
 
@@ -48,7 +48,7 @@ function deleteUser(username) {
     log("Clicked delete " + username);
 
     if (true) { // TODO should ask for confirmation
-        ajax("DELETE", "floop/accounts/" + username, null, manageUsers);
+        ajax("DELETE", "accounts/" + username, null, manageUsers);
     }
 }
 

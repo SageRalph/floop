@@ -13,7 +13,7 @@ window.addEventListener('load', function () {
  */
 function manageFilms() {
     // Get info for displaying films
-    ajax("GET", "floop/accounts", null, getFilms);
+    ajax("GET", "accounts", null, getFilms);
 }
 
 /**
@@ -24,8 +24,8 @@ function manageFilms() {
  * @param {array(String)} users
  */
 function getFilms(users) {
-
-    var url = "floop/films";
+	
+	var url = "films";
 
     // If film table has been drawn
     if (isSet(getElem('filmTable'))) {
@@ -39,7 +39,7 @@ function getFilms(users) {
  * Creates a new film with the title ""
  */
 function createFilm() {
-    ajax('POST', 'floop/films', "");
+    ajax('POST', 'films', "");
 }
 
 /**
@@ -77,7 +77,7 @@ function drawFilmTable(users, films) {
     // Create blank film and reload if non existent.
     if (!hasEditingRow) {
         createFilm();
-        ajax("GET", "floop/films", null, drawFilmTable.bind(null, users));
+        ajax("GET", "films", null, drawFilmTable.bind(null, users));
     }
 }
 
@@ -283,7 +283,7 @@ function editFilm(users, row, film) {
  * @param {function} callback
  */
 function getAutoTrailer(filmID, callback) {
-    ajax('PUT', 'floop/films/' + filmID, ["trailer", "AUTO"], callback);
+    ajax('PUT', 'films/' + filmID, ["trailer", "AUTO"], callback);
 }
 
 /**
@@ -352,10 +352,10 @@ function appendRatings(row, film, users) {
 function editRating(filmID, user, ratingField) {
     var value = ratingField.value;
     if (isNatural(value) && value <= 5) {
-        ajax("PUT", "floop/films/" + filmID + "/" + user, ratingField.value);
+        ajax("PUT", "films/" + filmID + "/" + user, ratingField.value);
         ratingField.className = "RatingField";
     } else {
-        ajax("DELETE", "floop/films/" + filmID + "/" + user);
+        ajax("DELETE", "films/" + filmID + "/" + user);
         ratingField.value = "";
         ratingField.className = "RatingField InvalidInput";
     }
@@ -406,7 +406,7 @@ function appendFilmButtons(row, film, users, editing) {
  *
  */
 function markWatched(filmID, value, users) {
-    ajax('PUT', 'floop/films/' + filmID, ['watched', value], getFilms.bind(null, users));
+    ajax('PUT', 'films/' + filmID, ['watched', value], getFilms.bind(null, users));
 }
 
 /**
@@ -416,6 +416,6 @@ function markWatched(filmID, value, users) {
  * @param {String} filmID
  */
 function removeFilm(row, filmID) {
-    ajax("DELETE", "floop/films/" + filmID);
+    ajax("DELETE", "films/" + filmID);
     row.parentNode.removeChild(row); // Remove the row rather than reloading
 }
