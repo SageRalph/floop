@@ -51,6 +51,9 @@ function deleteUser($username) {
 
     $query = "DELETE FROM Rating WHERE username = ?";
     $result = $GLOBALS['db']->run($query, array($username));
+	
+	$query = "DELETE FROM Stock WHERE username = ?";
+    $result = $GLOBALS['db']->run($query, array($username));
 
     $query = "DELETE FROM Account WHERE username = ?";
     $result = $GLOBALS['db']->run($query, array($username));
