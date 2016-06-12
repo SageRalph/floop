@@ -13,7 +13,7 @@
 .navBar h1{
     text-align: center;
     margin: 0;
-    padding: 0.1em 0 0.1em 0;
+    padding: 0;
     width:100%;
     color:orange;
     font-size: 3em;
@@ -34,20 +34,16 @@
     list-style-type: none;
     padding-right: 2%;
     padding-left: 2%;
-    overflow-y: scroll;
 }
 .navBar li:hover{
     text-shadow: 0 0 0.5em white, 0 0 0.5em white, 0 0 0.5em #CC9900;
 }
-.navBar input{
-    margin: 0;
-    margin-bottom:0.3em;
-    font-size:0.7em;
-}
+
 #currentTab{
     background-color: white;
     color:black;
-    padding-bottom:0.3em;
+	padding-top:0.2em;
+    padding-bottom:0.5em;
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em;
 }
