@@ -24,8 +24,8 @@ function manageFilms() {
  * @param {array(String)} users
  */
 function getFilms(users) {
-	
-	var url = "films";
+
+    var url = "films";
 
     // If film table has been drawn
     if (isSet(getElem('filmTable'))) {
@@ -392,7 +392,7 @@ function appendFilmButtons(row, film, users, editing) {
 
     // Remove button
     if (film.title !== "") {
-        appendBtnCell(row, newIconBtn(icon('remove'), removeFilm.bind(null, row, film.filmID)));
+        appendBtnCell(row, newIconBtn(icon('remove'), removeFilm.bind(null, row, film)));
     }
 }
 
@@ -410,12 +410,24 @@ function markWatched(filmID, value, users) {
 }
 
 /**
- * Deletes film with given filmID and removes it from the film table.
+ * Deletes film and removes it from the film table.
  * 
  * @param {'tr'} row
  * @param {String} filmID
  */
-function removeFilm(row, filmID) {
-    ajax("DELETE", "films/" + filmID);
-    row.parentNode.removeChild(row); // Remove the row rather than reloading
+function removeFilm(row, film) {
+    log();
+    log("Clicked delete " + film.title);
+
+    var warning = "\
+    Confirm deletion of " + film.title + "\n\
+    This action is not reversible!";
+
+    var confirmed = confirm(warning);
+    console.log("Deletion confirmed: " + confirmed);
+
+    if (confirmed) {
+        ajax("DELETE", "films/" + film.filmID);
+        row.parentNode.removeChild(row); // Remove the row rather than reloading
+    }
 }

@@ -47,7 +47,14 @@ function deleteUser(username) {
     log();
     log("Clicked delete " + username);
 
-    if (true) { // TODO should ask for confirmation
+    var warning = "\
+    Confirm deletion of " + username + "\n\
+    This action is not reversible!";
+    
+    var confirmed = confirm(warning);
+    log("Deletion confirmed: " + confirmed);
+    
+    if (confirmed) {
         ajax("DELETE", "accounts/" + username, null, manageUsers);
     }
 }
