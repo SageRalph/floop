@@ -424,7 +424,7 @@ function removeFilm(row, film) {
     This action is not reversible!";
 
     var confirmed = confirm(warning);
-    console.log("Deletion confirmed: " + confirmed);
+    log("Deletion confirmed: " + confirmed);
 
     if (confirmed) {
         ajax("DELETE", "films/" + film.filmID);
