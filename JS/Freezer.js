@@ -159,16 +159,6 @@ function editStock(itemName, user, stockField) {
         ajax("PUT", "food/" + itemName + "/" + user, stockField.value);
         stockField.className = "StockField";
     }
-
-//    // OLD
-//    if (isNumeric(value) && value < 10 && value >= 0) {
-//        ajax("PUT", "food/" + itemName + "/" + user, stockField.value);
-//        stockField.className = "StockField";
-//    } else {
-//        ajax("DELETE", "food/" + itemName + "/" + user);
-//        stockField.value = "";
-//        stockField.className = "StockField InvalidInput";
-//    }
 }
 
 
@@ -181,21 +171,24 @@ function editStock(itemName, user, stockField) {
  */
 function drawFoodSearch(users) {
 
-    // Search Bar
-    var searchBar = newElem('input', null, 'Search');
-    searchBar.type = 'text';
-    searchBar.id = 'searchBar';
-    // For Chrome
-    searchBar.onchange = foodSearch.bind(null, users);
-    // For others
-    searchBar.onkeyup = foodSearch.bind(null, users);
-
-
     // Add Button
     var addButton = newBtn('Add', addFood.bind(null, users));
     addButton.disabled = true;
     addButton.id = 'addButton';
 
+    // Search Bar
+    var searchBar = newElem('input', null, 'Search');
+    searchBar.type = 'text';
+    searchBar.id = 'searchBar';
+    searchBar.addEventListener("keyup", function(event){
+        if(event.keyCode === 13 && addButton.disabled === false){
+            // Add if enter key pressed and valid item name
+            addButton.click();
+        }else{
+            // Otherwise search
+            foodSearch(users);
+        }
+    },false);
 
     // Display
     var container = newElem('section', 'Controls');
@@ -226,7 +219,7 @@ function foodSearch(users) {
     var url = "food";
 
     // Advanced searching criteria
-    // Only aplicable if interface has been drawn
+    // Only applicable if interface has been drawn
     if (isSet(getElem('foodTable'))) {
 
         // Add search term if set
@@ -270,7 +263,7 @@ function displayFoodSearchResults(term, users, results) {
 }
 
 /**
- * Determins whether results contains an exact match to the search term.
+ * Determines whether results contains an exact match to the search term.
  * 
  * @param {string} term
  * @param {array(object)} results
