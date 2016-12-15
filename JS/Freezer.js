@@ -11,7 +11,10 @@ window.addEventListener('load', function () {
  */
 function manageFoods() {
     // Get info for displaying foods
-    ajax("GET", "accounts", null, function (users) {
+    ajax("GET", "accounts", null, function (users, status) {
+        if (status >= 400){
+            return console.log("Failed to get users");
+        }
         foodSearch(users);
     });
 }
@@ -244,7 +247,11 @@ function foodSearch(users) {
  * @param {array(string)} users
  * @param {array(object)} results
  */
-function displayFoodSearchResults(term, users, results) {
+function displayFoodSearchResults(term, users, results, status) {
+    
+    if (status >= 400){
+        return console.log("Failed to get food");
+    }
 
     // Manage add food button
     // Only applicable if search bar was used

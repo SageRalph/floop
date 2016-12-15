@@ -78,8 +78,12 @@ function createUserTable() {
  * 
  * @param {array(String)} users
  */
-function displayUsers(users) {
+function displayUsers(users, status) {
     log("Displaying users");
+    
+    if (status >= 400){
+        return console.log("Failed to get users");
+    }
 
     var table = getElem('friends');
 

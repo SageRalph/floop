@@ -23,7 +23,11 @@ function manageFilms() {
  * 
  * @param {array(String)} users
  */
-function getFilms(users) {
+function getFilms(users, status) {
+    
+    if (status >= 400){
+        return console.log("Failed to get users");
+    }
 
     var url = "films";
 
@@ -49,7 +53,12 @@ function createFilm() {
  * @param {array(String)} users
  * @param {array(object)} films
  */
-function drawFilmTable(users, films) {
+function drawFilmTable(users, films, status) {
+    
+    if (status >= 400){
+        return console.log("Failed to get films");
+    }
+    
     log();
 
     // Find or create table
